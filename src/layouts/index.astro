@@ -1,0 +1,29 @@
+---
+const { content } = Astro.props;
+const siteConfig = {
+  title: 'Lär dig koda'
+}
+---
+<html>
+  <head>
+    <!-- Add other Head elements here, like styles and meta tags. -->
+    <title>{content.title}</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">{ siteConfig.title }</a>
+    </header>
+    <side>
+      <p>Sidebar</p>
+    </side>
+    <main>
+      {content.type === 'post' ?
+      <h1>{content.title} by {content.author}</h1>
+      :
+      <h1>{content.title}</h1>
+      }
+      <slot />
+      {content.type === 'post' && <p>Written on: {content.date}</p>}
+      </main>
+  </body>
+</html>
