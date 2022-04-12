@@ -3,7 +3,7 @@ import Layout from '../layouts/index.astro'
 const allContent = await Astro.glob('../pages/posts/*.md');
 
 const content = {
-  title: "Antal inlägg: " + allContent.length,
+  title: `Välkommen just nu finns det ${allContent.length} inlägg att läsa`,
 }
 
 ---

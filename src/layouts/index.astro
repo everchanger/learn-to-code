@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const { content } = Astro.props;
 const siteConfig = {
   title: 'Lär dig koda'
@@ -7,10 +9,11 @@ const siteConfig = {
 <html>
   <head>
     <!-- Add other Head elements here, like styles and meta tags. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{content.title}</title>
   </head>
   <body>
-    <header>
+    <header class="text-2xl">
       <a href="/">{ siteConfig.title }</a>
     </header>
     <side>
@@ -18,12 +21,14 @@ const siteConfig = {
     </side>
     <main>
       {content.type === 'post' ?
-      <h1>{content.title} by {content.author}</h1>
+      <div class="mb-16">
+        <h1 class="text-xl mb-2">{content.title}</h1>
+        <h2 class="text-sm">{content.author} // {content.date}</h2>
+      </div>
       :
-      <h1>{content.title}</h1>
+      <h1 class="text-xl mb-16">{content.title}</h1>
       }
       <slot />
-      {content.type === 'post' && <p>Written on: {content.date}</p>}
-      </main>
+    </main>
   </body>
 </html>
