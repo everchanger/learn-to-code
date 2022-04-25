@@ -11,9 +11,9 @@ const content = {
 <Layout content={content} >
   <div class="space-y-6">
     {allContent.map(post => (
-      <a class="flex justify-between p-6 shadow-lg" href={post.url} >
-        <div class="flex flex-col justify-between">
-          <div class="">
+      <a class="flex justify-between p-3 shadow-lg md:p-6" href={post.url} >
+        <div class="flex flex-col justify-between mr-2">
+          <div>
             <h2 class="text-xl font-bold">{post.frontmatter.title}</h2>
             <p class="hidden sm:block">{post.frontmatter.ingress}</p>
           </div>

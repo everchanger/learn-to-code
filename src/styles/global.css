@@ -7,7 +7,7 @@ html {
 }
 
 .post p, .post h3 {
-	@apply mb-6;
+	@apply leading-relaxed mb-7;
 }
 
 .post a {
