@@ -3,47 +3,18 @@
 @tailwind utilities;
 
 html {
-  @apply min-h-screen;
+  @apply font-mono;
 }
 
-body {
-  @apply grid grid-cols-3 grid-rows-3 min-h-screen;
-
-  grid-template-areas: 
-    "header header header"
-    "main main main"
-    "footer footer footer";
+.post p, .post h3 {
+	@apply mb-6;
 }
 
-body > header {
-  grid-area: header;
-}
-body > main {
-  grid-area: main;
-}
-body > side {
-  @apply hidden;
-  grid-area: sidebar;
-}
-body > footer {
-  grid-area: footer;
+.post a {
+  @apply font-bold;
 }
 
-p {
-	@apply mb-2;
+a:hover {
+  @apply underline;
 }
 
-@screen md {
-  body {
-    @apply grid-cols-4;
-    grid-template-areas: 
-    "sidebar header header header"
-    "sidebar main main main"
-    "sidebar footer footer footer";
-  }
-  
-  body > side {
-    @apply block;
-    grid-area: sidebar;
-  }
-}

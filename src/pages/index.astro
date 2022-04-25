@@ -3,7 +3,7 @@ import Layout from '../layouts/index.astro'
 const allContent = await Astro.glob('../pages/posts/*.md');
 
 const content = {
-  title: `Välkommen just nu finns det ${allContent.length} inlägg att läsa`,
+  title: `Välkommen! Det här är en plats för att lära sig skriva kod och programmera. Inga förkunskaper krävs och innehållet fokuserar på webbutveckling, främst JavaScript men även en del CSS och HTML.`,
 }
 
 ---
@@ -11,10 +11,15 @@ const content = {
 <Layout content={content} >
   <div class="space-y-6">
     {allContent.map(post => (
-      <a class="block" href={post.url} >
-        <h2 class="font-bold">{post.frontmatter.title}</h2>
-        <p>{post.frontmatter.date}</p>
-        <p>{post.frontmatter.ingress}</p>
+      <a class="flex justify-between p-6 shadow-lg" href={post.url} >
+        <div class="flex flex-col justify-between">
+          <div class="">
+            <h2 class="text-xl font-bold">{post.frontmatter.title}</h2>
+            <p class="hidden sm:block">{post.frontmatter.ingress}</p>
+          </div>
+          <p class="text-xs">{post.frontmatter.author} // {post.frontmatter.date}</p>
+        </div>
+        <img src={`assets/images/${post.frontmatter.date}.jpg`} class="object-cover w-24 aspect-square" />
       </a>
     ))}
   </div>
