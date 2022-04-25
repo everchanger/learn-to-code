@@ -6,10 +6,12 @@ const siteConfig = {
   title: 'Jag vill lära mig koda!',
 }
 ---
-<html class="min-h-screen">
+<html class="min-h-screen" lang="sv">
   <head>
     <!-- Add other Head elements here, like styles and meta tags. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content={content.ingress || content.title} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{content.title}</title>
   </head>
   <body class="min-h-screen px-4 mx-auto md:max-w-screen-md">
@@ -23,7 +25,7 @@ const siteConfig = {
           <h1 class="mb-2 text-2xl">{content.title}</h1>
           <h2 class="mb-8 text-sm">{content.author} // {content.date}</h2>
           <div class="flex justify-center">
-            <img src={`/assets/images/${content.date}.jpg`} class="w-full mb-4" />
+            <img src={`/assets/images/${content.date}.jpg`} alt={`Bild för inlägg postat den ${content.date}`} class="w-full mb-4" />
           </div>
         </div>
         :
